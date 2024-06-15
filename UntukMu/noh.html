@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apology to My Girlfriend</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+      background-color: #f0f0f0;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin: 10px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .apology {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .response-buttons {
+      margin-top: 20px;
+    }
+    .yes-button {
+      background-color: #2196F3;
+    }
+    .no-button {
+      background-color: #f44336;
+      position: absolute;
+    }
+    .response {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Are you mad at me Nadia?</h1>
+  <button onclick="showApology()">Click to See Apology</button>
+
+  <div id="apologyText" class="apology">
+    <p>Your apology message</p>
+    <div class="response-buttons">
+      <button class="yes-button" onclick="respond(true)">Yes</button>
+      <button id="noButton" class="no-button" onclick="respond(false)">No</button>
+    </div>
+    <div id="response" class="response"></div>
+  </div>
+
+  <script>
+    function showApology() {
+      var apologyDiv = document.getElementById("apologyText");
+      apologyDiv.style.display = "block";
+    }
+
+    function respond(answer) {
+      var responseDiv = document.getElementById("response");
+      var noButton = document.getElementById("noButton");
+      
+      if (answer) {
+        responseDiv.style.color = "#4CAF50";
+        responseDiv.textContent = " HAHAHA you cant press no, I realize now that my actions or words might have contributed to your feelings of stress, and for that, I sincerely apologize. Please know that it was never my intention to make you feel this way. You mean the world to me, and your happiness and well-being are of utmost importance. Please let me know if there's anything I can do to make things better or if you'd like to talk about what happened. I am here to listen, understand, and support you in any way I can. Again, I'm truly sorry for causing you stress. I love you very much, and I'll do whatever it takes to make things right.  From yr hensem boy Haikal manis 😘❤️";
+        noButton.style.display = "none"; // Hide the "No" button
+      } else {
+        responseDiv.style.color = "#f44336";
+        responseDiv.textContent = "ERRoR.";
+        
+        // Move the "No" button randomly
+        moveButtonRandomly(noButton);
+      }
+    }
+    
+    function moveButtonRandomly(button) {
+      var width = window.innerWidth - button.offsetWidth;
+      var height = window.innerHeight - button.offsetHeight;
+      
+      var randomX = Math.random() * width;
+      var randomY = Math.random() * height;
+      
+      button.style.position = "absolute";
+      button.style.left = randomX + "px";
+      button.style.top = randomY + "px";
+    }
+  </script>
+</body>
+</html>
